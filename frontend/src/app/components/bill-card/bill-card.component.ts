@@ -10,7 +10,7 @@ import { Bill, BILL_STATUS_LABELS, SENTIMENT_COLORS } from '../../models/bill.mo
         <span class="sentiment-dot" *ngIf="bill.sentiment_label"
               [style.background]="sentimentColor" [title]="bill.sentiment_label"></span>
       </div>
-      <h3 class="bill-title">{{ bill.title | slice:0:100 }}{{ bill.title?.length! > 100 ? '...' : '' }}</h3>
+      <h3 class="bill-title">{{ bill.title | slice:0:100 }}{{ (bill.title?.length ?? 0) > 100 ? '...' : '' }}</h3>
       <p class="bill-summary" *ngIf="bill.summary">{{ bill.summary | slice:0:120 }}...</p>
       <div class="card-footer">
         <span class="status-badge" [class]="'status-' + bill.status">{{ statusLabel }}</span>

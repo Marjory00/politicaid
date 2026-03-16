@@ -147,10 +147,14 @@ export class BillDetailPage implements OnInit {
   }
 
   get statusLabel(): string { return this.bill?.status ? (BILL_STATUS_LABELS as any)[this.bill.status] ?? this.bill.status : ''; }
-  get statusSeverity(): string {
-    const m: any = { enacted:'success', failed:'danger', vetoed:'danger', introduced:'info' };
+
+  get statusSeverity(): 'success' | 'secondary' | 'info' | 'warning' | 'danger' | 'contrast' | undefined {
+    const m: Record<string, 'success' | 'danger' | 'info' | 'warning'> = {
+      enacted: 'success', failed: 'danger', vetoed: 'danger', introduced: 'info'
+    };
     return m[this.bill?.status ?? ''] ?? 'warning';
   }
+
   get sentimentColor(): string { return this.bill?.sentiment_label ? (SENTIMENT_COLORS as any)[this.bill.sentiment_label] ?? '#94a3b8' : '#94a3b8'; }
   get sentimentPercent(): number { return this.bill?.sentiment_score != null ? Math.round((this.bill.sentiment_score + 1) / 2 * 100) : 50; }
   get yeaPercent(): number {

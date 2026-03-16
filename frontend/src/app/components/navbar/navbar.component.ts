@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,7 +6,7 @@ import { Component } from '@angular/core';
     <nav class="navbar">
       <div class="navbar-brand">
         <i class="pi pi-building"></i>
-        <span>LegisAI</span>
+        <span>PoliticAID</span>
       </div>
       <div class="navbar-links">
         <a routerLink="/"          routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
