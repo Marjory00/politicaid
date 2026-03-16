@@ -1,0 +1,95 @@
+# ============================================================
+#  POLITICAID — .gitignore
+# ============================================================
+
+# ─── PRIVATE & SENSITIVE (NEVER COMMIT) ───────────────────
+.env
+.env.*
+!.env.example
+secrets/
+private/
+config/private/
+backend/app/core/secrets.py
+backend/app/core/keys.py
+*.pem
+*.key
+*.p12
+*.pfx
+*.cert
+*.crt
+api_keys.json
+credentials.json
+service_account.json
+auth_config.py
+
+# ─── COPYRIGHT PROTECTED (uncomment to hide your NLP logic)
+# backend/app/nlp/
+# backend/app/services/proprietary_*.py
+
+# ─── PYTHON ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+instance/
+mlruns/
+
+# ─── NLP / ML MODELS (large binaries) ────────────────────
+models/
+*.model
+*.pkl
+*.pickle
+*.bin
+*.pt
+*.pth
+*.onnx
+*.h5
+*.safetensors
+embeddings/
+vector_store/
+chroma_db/
+
+# ─── ANGULAR / NODE ───────────────────────────────────────
+node_modules/
+dist/
+tmp/
+out-tsc/
+.angular/
+coverage/
+
+# ─── DATABASE ─────────────────────────────────────────────
+*.sql.backup
+*.dump
+pg_data/
+postgres_data/
+
+# ─── DOCKER ───────────────────────────────────────────────
+docker-compose.override.yml
+
+# ─── WINDOWS ──────────────────────────────────────────────
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ─── VSCODE ───────────────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# ─── OS ───────────────────────────────────────────────────
+.DS_Store
+*.swp
+*~
+.idea/
