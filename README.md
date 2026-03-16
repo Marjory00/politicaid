@@ -33,8 +33,22 @@ These insights are presented through an interactive web dashboard that enables e
 
 # Preview Images Project
 
+## Dashboard
+
 ![Dashboard](docs/screenshots/dashboard.png)
+
+## Bills 
+
 ![Bills](docs/screenshots/bills.png)
+
+## Analytics
+
+![Analytics](docs/screenshots/analytics.png)
+
+## Bill-Detail
+
+![Bill-detail](docs/screenshots/bill-detail.png)
+
 
 ---
 
