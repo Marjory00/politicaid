@@ -31,6 +31,13 @@ These insights are presented through an interactive web dashboard that enables e
 
 ---
 
+# Preview Images Project
+
+![Dashboard](docs/screenshots/dashboard.png)
+![Bills](docs/screenshots/bills.png)
+
+---
+
 # Core Objectives
 
 PoliticAId focuses on three main objectives:
