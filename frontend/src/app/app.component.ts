@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
   styles: [`
     .main-content {
       min-height: calc(100vh - 64px);
-      background: var(--surface-ground);
+      background: #f1f5f9;
     }
   `]
 })
