@@ -1,51 +1,116 @@
 # ============================================================
 #  POLITICAID — .gitignore
+#  Protects: secrets, passwords, API keys, models,
+#             proprietary code, sensitive configs,
+#             build artifacts, OS/IDE files
 # ============================================================
 
-# ─── PRIVATE & SENSITIVE (NEVER COMMIT) ───────────────────
+# ─── PRIVATE & SENSITIVE — NEVER COMMIT ───────────────────
 .env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.test
 .env.*
 !.env.example
 secrets/
+secrets.json
+secrets.yaml
+secrets.yml
 private/
+private.json
 config/private/
+config/secrets/
 backend/app/core/secrets.py
 backend/app/core/keys.py
+backend/app/core/private.py
 *.pem
 *.key
 *.p12
 *.pfx
 *.cert
 *.crt
+*.jks
+*.keystore
 api_keys.json
+api_keys.yaml
 credentials.json
+credentials.yaml
 service_account.json
+service_account.yaml
+google_credentials.json
+firebase_credentials.json
 auth_config.py
+auth_config.json
+token.json
+token.pickle
+access_token.txt
+refresh_token.txt
+jwt_secret.txt
+*.secret
 
-# ─── COPYRIGHT PROTECTED (uncomment to hide your NLP logic)
+# ─── COPYRIGHT PROTECTED SOURCE CODE ─────────────────────
+# Uncomment below to hide your proprietary NLP logic
+# and core business logic from the public repository.
+# These files stay only on your local machine.
+#
 # backend/app/nlp/
-# backend/app/services/proprietary_*.py
+# backend/app/services/bill_service.py
+# backend/app/services/ingest_service.py
+# backend/app/api/v1/analytics.py
+# frontend/src/app/services/
+# frontend/src/app/pages/
 
 # ─── PYTHON ───────────────────────────────────────────────
 __pycache__/
 *.py[cod]
+*$py.class
 *.so
 *.egg
 *.egg-info/
 dist/
 build/
+eggs/
+.eggs/
+parts/
+var/
+sdist/
+wheels/
 .venv/
 venv/
 ENV/
 env/
+env.bak/
+venv.bak/
+.Python
 .pytest_cache/
 .coverage
+.coverage.*
+coverage.xml
 htmlcov/
+nosetests.xml
+*.cover
 *.log
+*.log.*
+logs/
+log/
 instance/
 mlruns/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.tox/
+.hypothesis/
+profile_default/
+ipython_config.py
+.ipynb_checkpoints/
+*.ipynb
+local_settings.py
 
-# ─── NLP / ML MODELS (large binaries) ────────────────────
+# ─── NLP / ML MODELS — LARGE BINARY FILES ────────────────
+# These are downloaded automatically via HuggingFace
+# and must never be committed (can be GBs in size)
 models/
 *.model
 *.pkl
@@ -55,41 +120,151 @@ models/
 *.pth
 *.onnx
 *.h5
+*.hdf5
 *.safetensors
+*.gguf
+*.ggml
 embeddings/
 vector_store/
 chroma_db/
+faiss_index/
+model_cache/
+.cache/huggingface/
+transformers_cache/
 
 # ─── ANGULAR / NODE ───────────────────────────────────────
 node_modules/
 dist/
 tmp/
 out-tsc/
+bazel-out/
 .angular/
+.sass-cache/
 coverage/
+connect.lock
+libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+typings/
+.pnp/
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+package-lock.json.bak
 
 # ─── DATABASE ─────────────────────────────────────────────
 *.sql.backup
 *.dump
+*.db
+*.sqlite
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
 pg_data/
 postgres_data/
+database/data/
+data/postgres/
+migrations/versions/*.py
+!migrations/versions/.gitkeep
+alembic.ini.local
 
 # ─── DOCKER ───────────────────────────────────────────────
 docker-compose.override.yml
+docker-compose.local.yml
+docker-compose.prod.yml
+.docker/
+docker/secrets/
+
+# ─── REDIS ────────────────────────────────────────────────
+dump.rdb
+appendonly.aof
+redis-data/
+
+# ─── CELERY ───────────────────────────────────────────────
+celerybeat-schedule
+celerybeat.pid
+*.pid
 
 # ─── WINDOWS ──────────────────────────────────────────────
 Thumbs.db
+Thumbs.db:encdata
+ehthumbs.db
+ehthumbs_vista.db
 Desktop.ini
 $RECYCLE.BIN/
 *.lnk
+*.stackdump
+[Dd]esktop.ini
+
+# ─── MACOS ────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+
+# ─── LINUX ────────────────────────────────────────────────
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
 
 # ─── VSCODE ───────────────────────────────────────────────
 .vscode/*
 !.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
+.history/
 
-# ─── OS ───────────────────────────────────────────────────
-.DS_Store
-*.swp
-*~
+# ─── JETBRAINS / INTELLIJ ────────────────────────────────
 .idea/
+*.iml
+*.iws
+*.ipr
+out/
+.idea_modules/
+
+# ─── MISC EDITOR FILES ───────────────────────────────────
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.temp
+*~
+\#*\#
+.\#*
+
+# ─── TEST COVERAGE & REPORTS ─────────────────────────────
+coverage/
+.coverage
+htmlcov/
+test-results/
+junit.xml
+*.lcov
+
+# ─── COMPILED / BUILD ARTIFACTS ─────────────────────────
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.out
+*.pyc
+*.pyd
+
+# ─── UPLOADS & USER DATA ─────────────────────────────────
+uploads/
+media/
+user_uploads/
+static/collected/
