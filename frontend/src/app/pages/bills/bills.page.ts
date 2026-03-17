@@ -4,6 +4,12 @@ import { BillService }    from '../../services/bill.service';
 import { SearchService }  from '../../services/search.service';
 import { Bill }           from '../../models/bill.model';
 
+import { ExportService } from '../../services/export.service';
+
+ // Add to class properties
+const exportingCSV = false;
+const exportingPDF = false;
+
 @Component({
   selector: 'app-bills',
   template: `
@@ -25,6 +31,26 @@ import { Bill }           from '../../models/bill.model';
           optionLabel="label" optionValue="value" (onChange)="applyFilters()" [showClear]="true">
         </p-dropdown>
       </div>
+
+      // Add to the template, after the party dropdown:
+<div class="export-btns">
+  <p-button
+    icon="pi pi-file-excel"
+    label="CSV"
+    styleClass="p-button-outlined p-button-sm p-button-success"
+    (onClick)="exportCSV()"
+    [loading]="exportingCSV"
+    pTooltip="Export filtered results as CSV">
+  </p-button>
+  <p-button
+    icon="pi pi-file-pdf"
+    label="PDF"
+    styleClass="p-button-outlined p-button-sm p-button-danger"
+    (onClick)="exportPDF()"
+    [loading]="exportingPDF"
+    pTooltip="Export filtered results as PDF">
+  </p-button>
+</div>
 
       <div class="results-info" *ngIf="!loading">
         {{ total | number }} bill(s) found
@@ -67,6 +93,10 @@ import { Bill }           from '../../models/bill.model';
   `]
 })
 export class BillsPage implements OnInit {
+exportingPDF: unknown;
+exportPDF() {
+throw new Error('Method not implemented.');
+}
   bills: Bill[] = []; total = 0; page = 1; pageSize = 20; loading = true;
   searchQuery = ''; selectedStatus = ''; selectedChamber = ''; selectedParty = '';
 
@@ -75,6 +105,8 @@ export class BillsPage implements OnInit {
                     {label:'Enacted',value:'enacted'},{label:'Vetoed',value:'vetoed'},{label:'Failed',value:'failed'}];
   chamberOptions = [{label:'House',value:'House'},{label:'Senate',value:'Senate'}];
   partyOptions   = [{label:'Democrat',value:'D'},{label:'Republican',value:'R'},{label:'Independent',value:'I'}];
+exportCSV: any;
+exportingCSV: unknown;
 
   get totalPages(): number { return Math.ceil(this.total / this.pageSize); }
 

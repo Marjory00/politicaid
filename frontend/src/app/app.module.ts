@@ -4,6 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { TooltipModule } from 'primeng/tooltip';
+import { ComparePage }   from './pages/compare/compare.page';
+import { DialogModule }  from 'primeng/dialog';
+
+
 import { TableModule }          from 'primeng/table';
 import { ChartModule }          from 'primeng/chart';
 import { CardModule }           from 'primeng/card';
@@ -39,6 +44,7 @@ import { ApiInterceptor }            from './interceptors/api.interceptor';
     AppComponent, NavbarComponent, BillCardComponent,
     SearchBarComponent, SentimentChartComponent, VotingTrendsComponent,
     HomePage, BillsPage, AnalyticsPage, BillDetailPage,
+      ComparePage,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, HttpClientModule,
@@ -46,7 +52,8 @@ import { ApiInterceptor }            from './interceptors/api.interceptor';
     TableModule, ChartModule, CardModule, TagModule, BadgeModule,
     InputTextModule, ButtonModule, DropdownModule, ProgressBarModule,
     ToastModule, ToolbarModule, PanelModule, TabViewModule,
-    ProgressSpinnerModule, DividerModule,
+    ProgressSpinnerModule, DividerModule, TooltipModule,
+    DialogModule, TooltipModule,
   ],
   providers: [
     MessageService,
