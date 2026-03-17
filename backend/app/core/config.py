@@ -22,6 +22,14 @@ class Settings(BaseSettings):
     SENTIMENT_MODEL: str = "distilbert-base-uncased-finetuned-sst-2-english"
     SUMMARIZATION_MODEL: str = "facebook/bart-large-cnn"
 
+    # ─── EMAIL ────────────────────────────────────────────
+    MAIL_USERNAME:   str = ""
+    MAIL_PASSWORD:   str = ""
+    MAIL_FROM:       str = ""
+    MAIL_PORT:       int = 587
+    MAIL_SERVER:     str = "smtp.gmail.com"
+    MAIL_FROM_NAME:  str = "PoliticAId"
+
     CONGRESS_API_KEY: str = ""
     PROPUBLICA_API_KEY: str = ""
 
